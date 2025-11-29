@@ -7,3 +7,11 @@ Ce projet prend comme référence [CyberChef](https://gchq.github.io/CyberChef/)
 ---
 
 🛠️ Projet en cours 🛠️
+
+---
+
+## Technologies
+
+- Langage C
+- Meson
+- Visual Studio Code
