@@ -1,8 +1,6 @@
 #ifndef ARGS_H
 #define ARGS_H
 
-#include "../includes/args_handlers.h"
-
 typedef struct
 {
     char *name;
@@ -23,17 +21,9 @@ typedef struct
 
 typedef struct
 {
-    char *title;
-    void (*action)(void);
-} ArgumentListElement;
-
-ArgumentListElement argsList[] = {
-    {"--in", handle_in},
-    {"--out", handle_out},
-    {"--input-format", handle_input_format},
-    {"--output-format", handle_output_format},
-    {"--action", handle_action},
-    {"--key", handle_key}};
+    char *name;
+    void (*handler)(Arguments *, int *, int, char **);
+} ArgHandler;
 
 Arguments parse_args(int argc, char **argv);
 
