@@ -5,4 +5,6 @@
 
 FileBuffer to_uppercase(const FileBuffer *input_buffer);
 
+FileBuffer to_lowercase(const FileBuffer *input_buffer);
+
 #endif
