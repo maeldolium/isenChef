@@ -7,8 +7,10 @@ src_file = files(
     'src/main.c',
     'src/args.c',
     'src/args_handlers.c',
+    'src/action_dispatcher.c',
     'src/file.c',
     'src/actions/toupper.c',
+    'src/actions/tolower.c',
 )
 
 includes = include_directories('includes')
