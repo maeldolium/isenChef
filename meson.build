@@ -11,6 +11,7 @@ src_file = files(
     'src/file.c',
     'src/actions/toupper.c',
     'src/actions/tolower.c',
+    'src/actions/tohex.c',
 )
 
 includes = include_directories('includes')
