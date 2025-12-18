@@ -18,9 +18,7 @@
  * \return Retourne la structure FileBuffer avec les données transformées,
  * retourne un buffer vide en cas d'erreur
  */
-*en cas d'erreur
-        * /
-    FileBuffer to_lowercase(const FileBuffer *input_buffer, const Action *action)
+FileBuffer to_lowercase(const FileBuffer *input_buffer, const Action *action)
 {
     FileBuffer temp;
     temp.data = NULL;

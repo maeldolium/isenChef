@@ -14,6 +14,7 @@ src_file = files(
     'src/actions/tohex.c',
     'src/actions/tobase64.c',
     'src/actions/caesar.c',
+    'src/actions/rc4.c',
 )
 
 includes = include_directories('includes')
