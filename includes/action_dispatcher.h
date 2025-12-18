@@ -4,7 +4,7 @@
 #include "args.h"
 #include "file.h"
 
-typedef FileBuffer (*ActionFn)(const FileBuffer *);
+typedef FileBuffer (*ActionFn)(const FileBuffer *, const Action *);
 
 typedef struct
 {

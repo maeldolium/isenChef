@@ -16,10 +16,11 @@
  *
  * \param input_buffer Buffer d'entrée contenant les données
  * du fichier
+ * \param action Action avec ses paramètres (inutilisé ici)
  * \return Retourne un buffer temporaire, retourne le buffer vide
  * en cas d'erreur
  */
-FileBuffer to_lowercase(const FileBuffer *input_buffer)
+FileBuffer to_lowercase(const FileBuffer *input_buffer, const Action *action)
 {
     FileBuffer temp;
     temp.data = NULL;

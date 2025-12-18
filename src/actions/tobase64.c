@@ -12,10 +12,11 @@
  * et initialise un buffer temporaire temp. Ensuite elle donne à temp
  *
  * \param input_buffer Buffer d'entrée contenant les données du fichier
+ * \param action Action avec ses paramètres (inutilisé ici)
  * \return Retourne un buffer avec les données transformées, retourne
  * un buffer vide en cas d'erreur
  */
-FileBuffer to_base64(const FileBuffer *input_buffer)
+FileBuffer to_base64(const FileBuffer *input_buffer, const Action *action)
 {
     FileBuffer temp;
     temp.data = NULL;

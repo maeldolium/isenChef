@@ -14,10 +14,11 @@
  * buffer d'entrée en 2 caractères hexadécimal et termine par \0.
  *
  * \param input_buffer Buffer d'entrée contenant les données du fichier
+ * \param action Action avec ses paramètres (inutilisé ici)
  * \return Retourne un buffer avec les données transformées, retourne
  * un buffer vide en cas d'erreur
  */
-FileBuffer to_hex(const FileBuffer *input_buffer)
+FileBuffer to_hex(const FileBuffer *input_buffer, const Action *action)
 {
     FileBuffer temp;
     temp.data = NULL;

@@ -43,6 +43,7 @@ FileBuffer dispatch_action(const FileBuffer *input, const Action *action)
         {"lowercase", to_lowercase},
         {"hex", to_hex},
         {"base64", to_base64},
+        {"caesar", caesar},
     };
 
     int actionsCount = sizeof(actions) / sizeof(actions[0]);
@@ -53,7 +54,7 @@ FileBuffer dispatch_action(const FileBuffer *input, const Action *action)
     {
         if (strcmp(action->name, actions[i].name) == 0)
         {
-            disaction = actions[i].fn(input);
+            disaction = actions[i].fn(input, action);
             found = 1;
             break;
         }
