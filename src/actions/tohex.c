@@ -30,7 +30,6 @@ FileBuffer to_hex(const FileBuffer *input_buffer)
 
     temp.size = input_buffer->size * 2;
     temp.data = malloc(temp.size + 1);
-    temp.data[temp.size] = '\0';
     if (!temp.data)
     {
         temp.size = 0;

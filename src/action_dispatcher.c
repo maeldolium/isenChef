@@ -42,6 +42,7 @@ FileBuffer dispatch_action(const FileBuffer *input, const Action *action)
         {"uppercase", to_uppercase},
         {"lowercase", to_lowercase},
         {"hex", to_hex},
+        {"base64", to_base64},
     };
 
     int actionsCount = sizeof(actions) / sizeof(actions[0]);
