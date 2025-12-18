@@ -4,17 +4,13 @@
 #include "../../includes/actions.h"
 
 /**
+ * \brief Permet de transformer le contenu d'un buffer en caractères hexadécimaux
  *
- * \brief Permet de transformer le contenu d'un buffer en
- * caractère hexadécimal
+ * La fonction to_hex prend un buffer d'entrée et le transforme en représentation
+ * hexadécimale. Chaque byte est converti en 2 caractères hexadécimaux.
  *
- * La fonction to_hex prend un buffer d'entrée input_buffer, puis crée
- * et initialise un buffer temporaire temp. Ensuite elle donne à temp le double de
- * la taille du buffer d'entrée + 1 (pour le \0) et transforme chaque caractère du
- * buffer d'entrée en 2 caractères hexadécimal et termine par \0.
- *
- * \param input_buffer Buffer d'entrée contenant les données du fichier
- * \param action Action avec ses paramètres (inutilisé ici)
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier
+ * \param action Pointeur vers la structure Action (inutilisée ici)
  * \return Retourne un buffer avec les données transformées, retourne
  * un buffer vide en cas d'erreur
  */

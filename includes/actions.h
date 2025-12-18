@@ -14,4 +14,6 @@ FileBuffer to_base64(const FileBuffer *input_buffer, const Action *action);
 
 FileBuffer caesar(const FileBuffer *input_buffer, const Action *action);
 
+FileBuffer rc4(const FileBuffer *input_buffer, const Action *action);
+
 #endif

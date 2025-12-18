@@ -3,21 +3,17 @@
 #include "../includes/args_handlers.h"
 
 /**
+ * \brief Permet de parcourir la ligne de commande pour stocker les arguments
  *
- * \brief La fonction parse_args permet de parcourir la
- * ligne de commande entrée par l'utilisateur afin de stocker
- * les arguments de celle-ci.
+ * La fonction parse_args crée une variable args de type struct Arguments et
+ * l'initialise. Elle définit un tableau de structures ArgHandler contenant les
+ * arguments possibles et leurs fonctions de traitement. Elle parcourt ensuite
+ * la ligne de commande pour chercher des correspondances avec le tableau des
+ * arguments et appelle les fonctions associées si l'argument existe.
  *
- * La fonction parse_args créer une variable args du type sturct
- * Arguments et l'initialise. Ensuite elle définit un tableau de structure
- * ArgHandler handlers contenant les arguments possible et la fonction qu'ils appellent.
- * Elle va ensuite parcourir la ligne de commande pour chercher une correspondance
- * entre l'argument actuelle et le tableau de structures des arguments et appeler la
- * fonction associée si l'argument existe.
- *
- * \param argc Nombre d'argument de la ligne de commande
- * \param argv Valeur de l'agument de la ligne de commande
- * \return Retourne la variable args
+ * \param argc Nombre d'arguments de la ligne de commande
+ * \param argv Pointeur vers le tableau de pointeurs contenant les valeurs des arguments
+ * \return Retourne la structure Arguments contenant les paramètres parsés
  */
 Arguments parse_args(int argc, char **argv)
 {

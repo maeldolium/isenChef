@@ -5,14 +5,13 @@
 #include "../../includes/actions.h"
 
 /**
- *
  * \brief Permet de convertir le buffer en base64
  *
- * La fonction to_base64 prend un buffer d'entrée input_buffer, puis crée
- * et initialise un buffer temporaire temp. Ensuite elle donne à temp
+ * La fonction to_base64 prend un buffer d'entrée input_buffer et le convertit
+ * en base64. Elle encode les données avec l'alphabet base64 standard.
  *
- * \param input_buffer Buffer d'entrée contenant les données du fichier
- * \param action Action avec ses paramètres (inutilisé ici)
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier
+ * \param action Pointeur vers la structure Action (inutilisée ici)
  * \return Retourne un buffer avec les données transformées, retourne
  * un buffer vide en cas d'erreur
  */

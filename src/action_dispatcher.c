@@ -6,20 +6,17 @@
 #include "../includes/actions.h"
 
 /**
- *
  * \brief Permet d'associer à un nom d'action son appel de fonction.
  *
- * La fonction dispatch_action prend un buffer d'entrée input et une Action
- * action, elle crée un buffer disaction et l'initialise. Ensuite, elle vérifie
- * que input et action existe, elle crée un tableau de structure ActionsEntry
- * qui associe à chaque nom d'action une fonction. Le programme cherche si le
- * nom d'action rentré par l'utilisateur existe et met le résultat de la transformation
- * dans disaction puis retourn le buffer.
+ * La fonction dispatch_action prend un buffer d'entrée input et une Action action.
+ * Elle crée un buffer disaction et l'initialise. Ensuite, elle vérifie que input
+ * et action existent, et crée un tableau de structures ActionsEntry qui associe
+ * à chaque nom d'action sa fonction. Le programme cherche si le nom d'action
+ * rentré par l'utilisateur existe et met le résultat de la transformation dans disaction.
  *
- * \param input Buffer d'entrée contenant les données du fichier à modifier
- * \param action Action demandée par l'utilisateur
- * \return Retourne le buffer disaction contenant le résultat de la
- * transformation.
+ * \param input Pointeur vers le buffer d'entrée contenant les données du fichier à modifier
+ * \param action Pointeur vers la structure Action demandée par l'utilisateur
+ * \return Retourne la structure FileBuffer contenant le résultat de la transformation
  */
 FileBuffer dispatch_action(const FileBuffer *input, const Action *action)
 {

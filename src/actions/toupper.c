@@ -6,18 +6,16 @@
 #include "../../includes/file.h"
 
 /**
- *
  * \brief Permet de passer le contenu d'un buffer en majuscule.
  *
  * La fonction to_uppercase crée un buffer temporaire temp, lui donne
  * la taille du buffer d'entrée puis transforme les caractères du
- * buffer d'entrée et les copies dans le buffer temporaire.
+ * buffer d'entrée et les copie dans le buffer temporaire.
  *
- * \param input_buffer Buffer d'entrée contenant les données
- * du fichier
- * \param action Action avec ses paramètres (inutilisé ici)
- * \return Retourne un buffer temporaire, retourne le buffer vide
- * en cas d'erreur
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier
+ * \param action Pointeur vers la structure Action (inutilisée ici)
+ * \return Retourne la structure FileBuffer avec les données transformées,
+ * retourne un buffer vide en cas d'erreur
  */
 FileBuffer to_uppercase(const FileBuffer *input_buffer, const Action *action)
 {

@@ -8,8 +8,8 @@
  *
  * La clé est extraite du paramètre action->key et convertie en nombre.
  *
- * \param input_buffer Buffer d'entrée contenant les données du fichier
- * \param action Action contenant la clé du décalage dans action->key
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier
+ * \param action Pointeur vers la structure Action contenant la clé du décalage
  * \return Retourne un buffer avec les données transformées
  */
 FileBuffer caesar(const FileBuffer *input_buffer, const Action *action)

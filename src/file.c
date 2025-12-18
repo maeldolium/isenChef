@@ -4,17 +4,14 @@
 #include "../includes/file.h"
 
 /**
- * \brief Lit le fichier donner par l'utilisateur et le stocke dans un buffer
+ * \brief Lit le fichier donné par l'utilisateur et le stocke dans un buffer
  *
- * La fonction read_file crée un buffer, puis, ouvre en binaire le fichier donné par
+ * La fonction read_file crée un buffer, ouvre en binaire le fichier donné par
  * l'utilisateur et stocke sa taille ainsi que ses données dans le buffer.
  *
- * \param FileBuffer Structure du buffer définie dans file.h, elle contient la taille
- * du buffer ainsi que ses données.
- * \param path Chemin vers le fichier d'entrée donné par l'utilisateur.
- * \return Retourne le buffer contenant les informations du fichiers. S'il y a
- * une erreur dans l'ouverture, l'allocation de la mémoire ou la lecture du fichier,
- * ferme le fichier et retourne un buffer incomplet et libère la mémoire.
+ * \param path Pointeur vers la chaîne de caractères contenant le chemin du fichier d'entrée
+ * \return Retourne la structure FileBuffer contenant les informations du fichier.
+ * En cas d'erreur, retourne un buffer vide et libère la mémoire allouée.
  */
 FileBuffer read_file(const char *path)
 {
