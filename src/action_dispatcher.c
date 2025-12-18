@@ -28,6 +28,7 @@ FileBuffer dispatch_action(const FileBuffer *input, const Action *action)
     disaction.data = NULL;
     disaction.size = 0;
 
+    // Vérification des paramètres requis
     if (!input || !input->data || input->size == 0)
     {
         return disaction;

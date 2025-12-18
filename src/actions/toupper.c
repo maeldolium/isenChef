@@ -25,6 +25,7 @@ FileBuffer to_uppercase(const FileBuffer *input_buffer, const Action *action)
     temp.data = NULL;
     temp.size = 0;
 
+    // Vérification des paramètres requis
     if (!input_buffer || !input_buffer->data || input_buffer->size == 0)
     {
         return temp;

@@ -14,7 +14,7 @@ int main(int argc, char **argv)
         return 1;
     }
 
-        FileBuffer current = buf;
+    FileBuffer current = buf;
 
     for (int i = 0; i < args.actions_count; i++)
     {
