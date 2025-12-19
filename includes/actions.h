@@ -8,10 +8,6 @@ FileBuffer to_uppercase(const FileBuffer *input_buffer, const Action *action);
 
 FileBuffer to_lowercase(const FileBuffer *input_buffer, const Action *action);
 
-FileBuffer to_hex(const FileBuffer *input_buffer, const Action *action);
-
-FileBuffer to_base64(const FileBuffer *input_buffer, const Action *action);
-
 FileBuffer caesar(const FileBuffer *input_buffer, const Action *action);
 
 FileBuffer rc4(const FileBuffer *input_buffer, const Action *action);

@@ -3,6 +3,7 @@
 #include "file.h"
 #include "actions.h"
 #include "action_dispatcher.h"
+#include "format_dispatcher.h"
 
 int main(int argc, char **argv)
 {
@@ -13,6 +14,8 @@ int main(int argc, char **argv)
     {
         return 1;
     }
+
+    buf = dispatch_format_decode(&buf, &args);
 
     FileBuffer current = buf;
 
@@ -33,6 +36,8 @@ int main(int argc, char **argv)
         }
         current = new;
     }
+
+    current = dispatch_format_encode(&current, &args);
 
     write_file(args.output_file, &current);
     free_file_buffer(&current);

@@ -11,10 +11,11 @@ src_file = files(
     'src/file.c',
     'src/actions/toupper.c',
     'src/actions/tolower.c',
-    'src/actions/tohex.c',
-    'src/actions/tobase64.c',
     'src/actions/caesar.c',
     'src/actions/rc4.c',
+    'src/format_dispatcher.c',
+    'src/formats/hex.c',
+    'src/formats/base64.c',
 )
 
 includes = include_directories('includes')
