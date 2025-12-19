@@ -12,4 +12,6 @@ FileBuffer caesar(const FileBuffer *input_buffer, const Action *action);
 
 FileBuffer rc4(const FileBuffer *input_buffer, const Action *action);
 
+FileBuffer xor (const FileBuffer *input_buffer, const Action *action);
+
 #endif

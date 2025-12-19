@@ -13,6 +13,7 @@ src_file = files(
     'src/actions/tolower.c',
     'src/actions/caesar.c',
     'src/actions/rc4.c',
+    'src/actions/xor.c',
     'src/format_dispatcher.c',
     'src/formats/hex.c',
     'src/formats/base64.c',

@@ -41,7 +41,8 @@ FileBuffer dispatch_action(const FileBuffer *input_buffer, const Action *action)
         {"uppercase", to_uppercase},
         {"lowercase", to_lowercase},
         {"caesar", caesar},
-        {"rc4", rc4},
+        {"RC4", rc4},
+        {"XOR", xor},
     };
 
     int actionsCount = sizeof(actions) / sizeof(actions[0]);
