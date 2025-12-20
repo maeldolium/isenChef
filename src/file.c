@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stddef.h>
 #include "../includes/file.h"
+#include "../includes/errors.h"
 
 /**
  * \brief Lit le fichier donné par l'utilisateur et le stocke dans un buffer
@@ -22,6 +23,7 @@ FileBuffer read_file(const char *path)
     FILE *f_in = fopen(path, "rb");
     if (f_in == NULL)
     {
+        print_error(ERR_FILE_NOT_FOUND, path);
         return buf;
     }
 
@@ -30,8 +32,9 @@ FileBuffer read_file(const char *path)
     rewind(f_in);
 
     buf.data = malloc(buf.size);
-    if (buf.data == NULL)
+    if (!buf.data)
     {
+        print_error(ERR_MEMORY_ALLOCATION, path);
         fclose(f_in);
         return buf;
     }
@@ -39,6 +42,7 @@ FileBuffer read_file(const char *path)
     size_t n = fread(buf.data, 1, buf.size, f_in);
     if (n != buf.size)
     {
+        print_error(ERR_FILE_READ, path);
         free_file_buffer(&buf);
         fclose(f_in);
         return buf;
@@ -72,12 +76,14 @@ int write_file(const char *path, const FileBuffer *buf)
     FILE *f_out = fopen(path, "wb");
     if (f_out == NULL)
     {
+        print_error(ERR_FILE_WRITE, path);
         return -1;
     }
 
     size_t n = fwrite(buf->data, 1, buf->size, f_out);
     if (n != buf->size)
     {
+        print_error(ERR_FILE_WRITE, path);
         fclose(f_out);
         return -1;
     }

@@ -4,12 +4,40 @@
 
 #include "../includes/format_dispatcher.h"
 #include "formats.h"
+#include "../includes/errors.h"
 
 // Tableau de structure des formats connus
 static FormatEntry formats[] = {
     {"bytes", NULL, NULL}, // Pas d'encodage/décodage nécessaire
     {"hex", to_hex, from_hex},
     {"base64", to_base64, from_base64}};
+
+/**
+ * \brief Vérifie si un format donné est valide
+ *
+ * La fonction is_valid_format vérifie si le nom du format passé en paramètre
+ * existe dans la liste des formats disponibles.
+ *
+ * \param format_name Pointeur vers le nom du format à vérifier
+ * \return Retourne 1 si le format est valide, 0 sinon
+ */
+int is_valid_format(const char *format_name)
+{
+    if (!format_name)
+        return 0;
+
+    int formatsCount = sizeof(formats) / sizeof(formats[0]);
+
+    for (int i = 0; i < formatsCount; i++)
+    {
+        if (strcmp(format_name, formats[i].name) == 0)
+        {
+            return 1;
+        }
+    }
+
+    return 0;
+}
 
 /**
  * \brief Permet de décoder le fichier d'entrée pour le traiter
@@ -64,7 +92,7 @@ FileBuffer dispatch_format_decode(const FileBuffer *input_buffer, const Argument
     // Retourne une erreur si décodage non trouvé
     if (found == 0)
     {
-        printf("Le format %s est inconnu.\n", args->input_format);
+        print_error(ERR_UNKNOWN_FORMAT, args->input_format);
         return disformat;
     }
 
@@ -122,7 +150,7 @@ FileBuffer dispatch_format_encode(const FileBuffer *input_buffer, const Argument
     // Envoie une erreur si format non trouvé
     if (found == 0)
     {
-        printf("Le format %s est inconnu.\n", args->output_format);
+        print_error(ERR_UNKNOWN_FORMAT, args->output_format);
         return disformat;
     }
 

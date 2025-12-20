@@ -14,4 +14,8 @@ typedef struct
 
 FileBuffer dispatch_action(const FileBuffer *input, const Action *action);
 
+int is_valid_action(const char *action_name);
+
+int action_requires_key(const char *action_name);
+
 #endif

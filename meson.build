@@ -9,6 +9,7 @@ src_file = files(
     'src/args_handlers.c',
     'src/action_dispatcher.c',
     'src/file.c',
+    'src/errors.c',
     'src/actions/toupper.c',
     'src/actions/tolower.c',
     'src/actions/caesar.c',

@@ -17,4 +17,6 @@ FileBuffer dispatch_format_decode(const FileBuffer *input_buffer, const Argument
 
 FileBuffer dispatch_format_encode(const FileBuffer *input_buffer, const Arguments *args);
 
+int is_valid_format(const char *format_name);
+
 #endif
