@@ -97,22 +97,7 @@ void handle_action(Arguments *args, int *i, int argc, char **argv)
         return;
     }
 
-    // Vérifie que la clé est présente si l'action la demande
-    if (action_requires_key(action->name))
-    {
-        if (*i + 2 >= argc || argv[*i + 2][0] == '-')
-        {
-            print_error(ERR_MISSING_KEY, action->name);
-            args->has_error = 1;
-            return;
-        }
-        action->key = argv[*i + 2];
-        (*i) += 2;
-    }
-    else
-    {
-        (*i)++;
-    }
+    (*i)++;
 }
 
 /**

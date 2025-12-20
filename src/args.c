@@ -1,6 +1,8 @@
 #include <string.h>
 #include "../includes/args.h"
 #include "../includes/args_handlers.h"
+#include "../includes/action_dispatcher.h"
+#include "../includes/errors.h"
 
 /**
  * \brief Permet de parcourir la ligne de commande pour stocker les arguments
@@ -57,6 +59,17 @@ Arguments parse_args(int argc, char **argv)
         }
         if (found == 0)
         {
+            args.has_error = 1;
+            return args;
+        }
+    }
+
+    // Vérifie que toutes les actions qui demandent une clé en ont une
+    for (int i = 0; i < args.actions_count; i++)
+    {
+        if (action_requires_key(args.actions[i].name) && args.actions[i].key == NULL)
+        {
+            print_error(ERR_MISSING_KEY, args.actions[i].name);
             args.has_error = 1;
             return args;
         }
