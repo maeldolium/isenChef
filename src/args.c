@@ -77,3 +77,23 @@ Arguments parse_args(int argc, char **argv)
 
     return args;
 }
+/**
+ * \brief Libère la mémoire allouée pour la structure Arguments
+ *
+ * La fonction free_arguments libère la mémoire allouée dynamiquement
+ * pour le tableau des actions dans la structure Arguments et réinitialise
+ * le compteur d'actions.
+ *
+ * \param args Pointeur vers la structure Arguments à libérer
+ */
+void free_arguments(Arguments *args)
+{
+    if (args == NULL)
+        return;
+    if (args->actions != NULL)
+    {
+        free(args->actions);
+        args->actions = NULL;
+    }
+    args->actions_count = 0;
+}

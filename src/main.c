@@ -14,6 +14,7 @@ int main(int argc, char **argv)
     // Retourne 1 si la structure comporte une erreur
     if (args.has_error)
     {
+        free_arguments(&args);
         return 1;
     }
 
@@ -21,6 +22,7 @@ int main(int argc, char **argv)
     FileBuffer buf = read_file(args.input_file);
     if (buf.data == NULL)
     {
+        free_arguments(&args);
         return 1;
     }
 
@@ -37,10 +39,11 @@ int main(int argc, char **argv)
         if (new.data == NULL || new.size == 0)
         {
             free_file_buffer(&current);
+            free_arguments(&args);
             return 1;
         }
 
-        if (i > 0)
+        if (new.data != current.data)
         {
             free_file_buffer(&current);
         }
@@ -48,13 +51,19 @@ int main(int argc, char **argv)
     }
 
     // Encodage du fichier
+    FileBuffer temp = current;
     current = dispatch_format_encode(&current, &args);
+    if (current.data != temp.data)
+    {
+        free(temp.data);
+    }
 
     // Ecriture sur le disque
     write_file(args.output_file, &current);
 
     // Libération de la mémoire
     free_file_buffer(&current);
+    free_arguments(&args);
 
     return 0;
 }

@@ -27,4 +27,6 @@ typedef struct
 
 Arguments parse_args(int argc, char **argv);
 
+void free_arguments(Arguments *args);
+
 #endif
