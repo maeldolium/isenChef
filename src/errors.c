@@ -10,7 +10,8 @@ void print_error(ErrorCode code, const char *context)
     case ERR_FILE_NOT_FOUND:
         if (context)
         {
-            printf("Erreur : fichier introuvable : %s\nError: file not found: %s\n", context, context);
+            printf("Erreur : fichier introuvable : %s\nError: file not found: %s\n", context,
+                   context);
         }
         else
         {
@@ -20,21 +21,27 @@ void print_error(ErrorCode code, const char *context)
     case ERR_FILE_READ:
         if (context)
         {
-            printf("Erreur: erreur lors de la lecture du fichier : %s\nError: error occurred during file reading: %s\n", context, context);
+            printf("Erreur: erreur lors de la lecture du fichier : %s\nError: error "
+                   "occurred during file reading: %s\n",
+                   context, context);
         }
         else
         {
-            printf("Erreur: erreur lors de la lecture du fichier.\nError: error occurred during file reading.\n");
+            printf("Erreur: erreur lors de la lecture du fichier.\nError: error "
+                   "occurred during file reading.\n");
         }
         break;
     case ERR_FILE_WRITE:
         if (context)
         {
-            printf("Erreur: erreur lors de l'écriture du fichier : %s\nError: error occurred during file writing: %s\n", context, context);
+            printf("Erreur: erreur lors de l'écriture du fichier : %s\nError: error "
+                   "occurred during file writing: %s\n",
+                   context, context);
         }
         else
         {
-            printf("Erreur: erreur lors de l'écriture du fichier.\nError: error occurred during file writing.\n");
+            printf("Erreur: erreur lors de l'écriture du fichier.\nError: error "
+                   "occurred during file writing.\n");
         }
         break;
 
@@ -42,7 +49,8 @@ void print_error(ErrorCode code, const char *context)
     case ERR_INVALID_ARGUMENT:
         if (context)
         {
-            printf("Erreur: argument invalide : %s\nError: invalid argument: %s\n", context, context);
+            printf("Erreur: argument invalide : %s\nError: invalid argument: %s\n", context,
+                   context);
         }
         else
         {
@@ -52,7 +60,8 @@ void print_error(ErrorCode code, const char *context)
     case ERR_MISSING_ARGUMENT:
         if (context)
         {
-            printf("Erreur: argument manquant : %s\nError: missing argument: %s\n", context, context);
+            printf("Erreur: argument manquant : %s\nError: missing argument: %s\n", context,
+                   context);
         }
         else
         {
@@ -84,7 +93,9 @@ void print_error(ErrorCode code, const char *context)
     case ERR_INVALID_BASE64:
         if (context)
         {
-            printf("Erreur: format base64 invalide : %s\nError: invalid base64 format: %s\n", context, context);
+            printf("Erreur: format base64 invalide : %s\nError: invalid base64 "
+                   "format: %s\n",
+                   context, context);
         }
         else
         {
@@ -94,7 +105,8 @@ void print_error(ErrorCode code, const char *context)
     case ERR_INVALID_HEX:
         if (context)
         {
-            printf("Erreur: format hex invalide : %s\nError: invalid hex format: %s\n", context, context);
+            printf("Erreur: format hex invalide : %s\nError: invalid hex format: %s\n", context,
+                   context);
         }
         else
         {
@@ -106,7 +118,9 @@ void print_error(ErrorCode code, const char *context)
     case ERR_MISSING_KEY:
         if (context)
         {
-            printf("Erreur: clé manquante pour l'action : %s\nError: missing key for action : %s\n", context, context);
+            printf("Erreur: clé manquante pour l'action : %s\nError: missing key for "
+                   "action : %s\n",
+                   context, context);
         }
         else
         {
@@ -126,7 +140,8 @@ void print_error(ErrorCode code, const char *context)
 
     // Erreur mémoire:
     case ERR_MEMORY_ALLOCATION:
-        printf("Erreur: erreur lors de l'allocation de la mémoire.\nError: memory allocation error.\n");
+        printf("Erreur: erreur lors de l'allocation de la mémoire.\nError: memory "
+               "allocation error.\n");
         break;
     default:
         if (context)

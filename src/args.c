@@ -1,8 +1,8 @@
-#include <string.h>
 #include "../includes/args.h"
-#include "../includes/args_handlers.h"
 #include "../includes/action_dispatcher.h"
+#include "../includes/args_handlers.h"
 #include "../includes/errors.h"
+#include <string.h>
 
 /**
  * \brief Permet de parcourir la ligne de commande pour stocker les arguments
@@ -14,7 +14,8 @@
  * arguments et appelle les fonctions associées si l'argument existe.
  *
  * \param argc Nombre d'arguments de la ligne de commande
- * \param argv Pointeur vers le tableau de pointeurs contenant les valeurs des arguments
+ * \param argv Pointeur vers le tableau de pointeurs contenant les valeurs des
+ * arguments
  * \return Retourne la structure Arguments contenant les paramètres parsés
  */
 Arguments parse_args(int argc, char **argv)
@@ -30,13 +31,12 @@ Arguments parse_args(int argc, char **argv)
 
     args.has_error = 0;
 
-    static ArgHandler handlers[] = {
-        {"--in", handle_in},
-        {"--out", handle_out},
-        {"--input-format", handle_input_format},
-        {"--output-format", handle_output_format},
-        {"--action", handle_action},
-        {"--key", handle_key}};
+    static ArgHandler handlers[] = {{"--in", handle_in},
+                                    {"--out", handle_out},
+                                    {"--input-format", handle_input_format},
+                                    {"--output-format", handle_output_format},
+                                    {"--action", handle_action},
+                                    {"--key", handle_key}};
 
     int handlersCount = sizeof(handlers) / sizeof(handlers[0]);
 

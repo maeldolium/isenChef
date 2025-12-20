@@ -1,10 +1,10 @@
-#include <stdio.h>
-#include "args.h"
-#include "file.h"
-#include "actions.h"
 #include "action_dispatcher.h"
-#include "format_dispatcher.h"
+#include "actions.h"
+#include "args.h"
 #include "errors.h"
+#include "file.h"
+#include "format_dispatcher.h"
+#include <stdio.h>
 
 int main(int argc, char **argv)
 {

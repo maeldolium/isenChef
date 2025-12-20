@@ -1,8 +1,8 @@
 #ifndef ACTIONS_H
 #define ACTIONS_H
 
-#include "file.h"
 #include "args.h"
+#include "file.h"
 
 FileBuffer to_uppercase(const FileBuffer *input_buffer, const Action *action);
 

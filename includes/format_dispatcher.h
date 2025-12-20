@@ -1,8 +1,8 @@
 #ifndef FORMAT_DISPATCHER_H
 #define FORMAT_DISPATCHER_H
 
-#include "file.h"
 #include "args.h"
+#include "file.h"
 
 typedef FileBuffer (*FormatFn)(const FileBuffer *);
 

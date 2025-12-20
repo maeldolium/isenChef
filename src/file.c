@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
 #include "../includes/file.h"
 #include "../includes/errors.h"
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * \brief Lit le fichier donné par l'utilisateur et le stocke dans un buffer
@@ -10,9 +10,11 @@
  * La fonction read_file crée un buffer, ouvre en binaire le fichier donné par
  * l'utilisateur et stocke sa taille ainsi que ses données dans le buffer.
  *
- * \param path Pointeur vers la chaîne de caractères contenant le chemin du fichier d'entrée
- * \return Retourne la structure FileBuffer contenant les informations du fichier.
- * En cas d'erreur, retourne un buffer vide et libère la mémoire allouée.
+ * \param path Pointeur vers la chaîne de caractères contenant le chemin du
+ * fichier d'entrée
+ * \return Retourne la structure FileBuffer contenant les informations du
+ * fichier. En cas d'erreur, retourne un buffer vide et libère la mémoire
+ * allouée.
  */
 FileBuffer read_file(const char *path)
 {
@@ -55,12 +57,12 @@ FileBuffer read_file(const char *path)
 
 /**
  *
- * \brief Permet l'écriture de données dans un fichier dont le chemin est indiqué
- * par l'utilisateur.
+ * \brief Permet l'écriture de données dans un fichier dont le chemin est
+ * indiqué par l'utilisateur.
  *
- * La fonction write_file vérifie si toutes les informations nécessaires sont présentes
- * (sinon retourne -1), puis ouvre le fichier de sortie et écrit les données dedans en
- * binaire.
+ * La fonction write_file vérifie si toutes les informations nécessaires sont
+ * présentes (sinon retourne -1), puis ouvre le fichier de sortie et écrit les
+ * données dedans en binaire.
  *
  * \param path Chemin du fichier de sortie donné par l'utilisateur.
  * \param buf Buffer contenant les données du fichier d'entrée.

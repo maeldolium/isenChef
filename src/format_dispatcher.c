@@ -2,15 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../includes/errors.h"
 #include "../includes/format_dispatcher.h"
 #include "formats.h"
-#include "../includes/errors.h"
 
 // Tableau de structure des formats connus
-static FormatEntry formats[] = {
-    {"bytes", NULL, NULL}, // Pas d'encodage/décodage nécessaire
-    {"hex", to_hex, from_hex},
-    {"base64", to_base64, from_base64}};
+static FormatEntry formats[] = {{"bytes", NULL, NULL}, // Pas d'encodage/décodage nécessaire
+                                {"hex", to_hex, from_hex},
+                                {"base64", to_base64, from_base64}};
 
 /**
  * \brief Vérifie si un format donné est valide
@@ -43,15 +42,17 @@ int is_valid_format(const char *format_name)
  * \brief Permet de décoder le fichier d'entrée pour le traiter
  * en bytes dans le reste du programme.
  *
- * La fonction dispatch_format_decode prend un buffer d'entrée input_buffer et un Argument
- * args. Elle vérifie que le nom du format d'entrée est connu, si oui, elle applique le décodage
- * associé afin de traiter les données en bytes dans le reste du programme,
- * sinon elle retourne une erreur.
+ * La fonction dispatch_format_decode prend un buffer d'entrée input_buffer et
+ * un Argument args. Elle vérifie que le nom du format d'entrée est connu, si
+ * oui, elle applique le décodage associé afin de traiter les données en bytes
+ * dans le reste du programme, sinon elle retourne une erreur.
  *
- * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier
- * \param args Pointeur vers la structure Argument qui contient le format du fichier d'entrée
- * \return Retourne la structure FileBuffer contenant les données du fichier en bytes,
- * retourne une structure vide en cas d'erreur.
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du
+ * fichier
+ * \param args Pointeur vers la structure Argument qui contient le format du
+ * fichier d'entrée
+ * \return Retourne la structure FileBuffer contenant les données du fichier en
+ * bytes, retourne une structure vide en cas d'erreur.
  */
 FileBuffer dispatch_format_decode(const FileBuffer *input_buffer, const Arguments *args)
 {
@@ -100,16 +101,19 @@ FileBuffer dispatch_format_decode(const FileBuffer *input_buffer, const Argument
 }
 
 /**
- * \brief Permet d'encoder le fichier de sortie au format demandé par l'utilisateur.
+ * \brief Permet d'encoder le fichier de sortie au format demandé par
+ * l'utilisateur.
  *
- * La fonction dispatch_format_encode prend un buffer d'entrée input_buffer et un Argument
- * args. Elle vérifie que le nom du format de sortie est connu, si oui, elle applique l'encodage
- * associé sinon elle retourne une erreur.
+ * La fonction dispatch_format_encode prend un buffer d'entrée input_buffer et
+ * un Argument args. Elle vérifie que le nom du format de sortie est connu, si
+ * oui, elle applique l'encodage associé sinon elle retourne une erreur.
  *
- * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier
- * \param args Pointeur vers la structure Argument qui contient le format du fichier de sortie
- * \return Retourne la structure FileBuffer contenant les données du fichier encodées,
- * retourne une structure vide en cas d'erreur.
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du
+ * fichier
+ * \param args Pointeur vers la structure Argument qui contient le format du
+ * fichier de sortie
+ * \return Retourne la structure FileBuffer contenant les données du fichier
+ * encodées, retourne une structure vide en cas d'erreur.
  */
 FileBuffer dispatch_format_encode(const FileBuffer *input_buffer, const Arguments *args)
 {

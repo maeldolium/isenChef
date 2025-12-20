@@ -7,11 +7,12 @@
 /**
  * \brief Permet de vérifier si une clé est entièrement composée de chiffres
  *
- * La fonction is_numeric_key parcourt la chaîne de caractères passée en paramètre
- * et vérifie que chaque caractère est un chiffre (de '0' à '9').
+ * La fonction is_numeric_key parcourt la chaîne de caractères passée en
+ * paramètre et vérifie que chaque caractère est un chiffre (de '0' à '9').
  *
  * \param key Pointeur vers la chaîne de caractères contenant la clé à vérifier
- * \return Retourne 1 si la clé est numérique, 0 sinon ou si la clé est NULL/vide
+ * \return Retourne 1 si la clé est numérique, 0 sinon ou si la clé est
+ * NULL/vide
  */
 int is_numeric_key(const char *key)
 {

@@ -21,10 +21,7 @@ int action_requires_key(const char *action_name)
         return 0;
 
     // Les actions qui demandent une clé
-    const char *key_required[] = {
-        "caesar",
-        "RC4",
-        "XOR"};
+    const char *key_required[] = {"caesar", "RC4", "XOR"};
 
     int count = sizeof(key_required) / sizeof(key_required[0]);
 
@@ -78,15 +75,18 @@ int is_valid_action(const char *action_name)
 /**
  * \brief Permet d'associer à un nom d'action son appel de fonction.
  *
- * La fonction dispatch_action prend un buffer d'entrée input_buffer et une Action action.
- * Elle crée un buffer disaction et l'initialise. Ensuite, elle vérifie que input_buffer
- * et action existent, et crée un tableau de structures ActionsEntry qui associe
- * à chaque nom d'action sa fonction. Le programme cherche si le nom d'action
- * rentré par l'utilisateur existe et met le résultat de la transformation dans disaction.
+ * La fonction dispatch_action prend un buffer d'entrée input_buffer et une
+ * Action action. Elle crée un buffer disaction et l'initialise. Ensuite, elle
+ * vérifie que input_buffer et action existent, et crée un tableau de structures
+ * ActionsEntry qui associe à chaque nom d'action sa fonction. Le programme
+ * cherche si le nom d'action rentré par l'utilisateur existe et met le résultat
+ * de la transformation dans disaction.
  *
- * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du fichier à modifier
+ * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du
+ * fichier à modifier
  * \param action Pointeur vers la structure Action demandée par l'utilisateur
- * \return Retourne la structure FileBuffer contenant le résultat de la transformation
+ * \return Retourne la structure FileBuffer contenant le résultat de la
+ * transformation
  */
 FileBuffer dispatch_action(const FileBuffer *input_buffer, const Action *action)
 {

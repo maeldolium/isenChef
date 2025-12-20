@@ -1,8 +1,8 @@
-#include <stdlib.h>
 #include "../includes/args_handlers.h"
-#include "../includes/errors.h"
 #include "../includes/action_dispatcher.h"
+#include "../includes/errors.h"
 #include "../includes/format_dispatcher.h"
+#include <stdlib.h>
 
 /**
  *
