@@ -5,11 +5,22 @@
 #include "file.h"
 #include "format_dispatcher.h"
 #include <stdio.h>
+#include <windows.h>
 
 int main(int argc, char **argv)
 {
+    // Active le support UTF-8 sur Windows
+    SetConsoleCP(65001);
+    SetConsoleOutputCP(65001);
     // Initialisation de la structure Arguments
     Arguments args = parse_args(argc, argv);
+
+    // Retourne 0 si l'utilisateur a demandé l'aide
+    if (args.help_requested)
+    {
+        free_arguments(&args);
+        return 0;
+    }
 
     // Retourne 1 si la structure comporte une erreur
     if (args.has_error)

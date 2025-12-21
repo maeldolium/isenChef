@@ -2,6 +2,7 @@
 #include "../includes/action_dispatcher.h"
 #include "../includes/args_handlers.h"
 #include "../includes/errors.h"
+#include "../includes/help.h"
 #include <string.h>
 
 /**
@@ -30,6 +31,7 @@ Arguments parse_args(int argc, char **argv)
     args.actions_count = 0;
 
     args.has_error = 0;
+    args.help_requested = 0;
 
     static ArgHandler handlers[] = {{"--in", handle_in},
                                     {"--out", handle_out},
@@ -43,6 +45,13 @@ Arguments parse_args(int argc, char **argv)
     for (int i = 1; i < argc; i++)
     {
         int found = 0;
+        if (strcmp(argv[i], "--help") == 0)
+        {
+            found = 1;
+            args.help_requested = 1;
+            print_help();
+            return args;
+        }
         for (int j = 0; j < handlersCount; j++)
         {
             if (strcmp(argv[i], handlers[j].name) == 0)

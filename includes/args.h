@@ -17,6 +17,7 @@ typedef struct
     Action *actions;
     int actions_count;
     int has_error;
+    int help_requested;
 } Arguments;
 
 typedef struct
