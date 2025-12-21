@@ -1,6 +1,8 @@
 #ifndef FILE_H
 #define FILE_H
 
+#include <stdlib.h>
+
 typedef struct
 {
     unsigned char *data;

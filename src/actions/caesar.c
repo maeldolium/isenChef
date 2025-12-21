@@ -4,7 +4,7 @@
 #include "../../includes/actions.h"
 
 /**
- * \brief Permet d'appliquer un chiffrement de César au buffer.
+ * \brief Permet d'appliquer un chiffrement César au buffer.
  *
  * La clé est extraite du paramètre action->key et convertie en nombre.
  *

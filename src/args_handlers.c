@@ -1,9 +1,51 @@
+#include <ctype.h>
 #include <stdlib.h>
 
 #include "../includes/action_dispatcher.h"
 #include "../includes/args_handlers.h"
 #include "../includes/errors.h"
 #include "../includes/format_dispatcher.h"
+
+/**
+ *
+ * \brief Vérifie si une chaîne est un nombre valide (avec signe optionnel)
+ *
+ * La fonction is_number accepte les nombres positifs, négatifs et positifs
+ * avec un signe +.
+ *
+ * \param str Pointeur vers la chaîne à vérifier
+ * \return Retourne 0 si c'est un nombre valide, 1 sinon
+ */
+int is_number(const char *str)
+{
+    if (!str || !*str)
+    {
+        return 1;
+    }
+
+    size_t i = 0;
+    // Accepte les signes + et -
+    if (str[0] == '-' || str[0] == '+')
+    {
+        i = 1;
+    }
+
+    // Doit avoir au moins un chiffre après le signe
+    if (!str[i])
+    {
+        return 1;
+    }
+
+    // Vérifie que tous les caractères suivants sont des chiffres
+    for (; str[i]; i++)
+    {
+        if (str[i] < '0' || str[i] > '9')
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 /**
  *
@@ -91,7 +133,7 @@ void handle_action(Arguments *args, int *i, int argc, char **argv)
     action->key = NULL;
 
     // Vérifie que l'action est valide
-    if (!is_valid_action(action->name))
+    if (is_valid_action(action->name))
     {
         print_error(ERR_UNKNOWN_ACTION, action->name);
         args->has_error = 1;
@@ -122,12 +164,22 @@ void handle_key(Arguments *args, int *i, int argc, char **argv)
         args->has_error = 1;
         return;
     }
-    if (*i + 1 >= argc || argv[*i + 1][0] == '-')
+    if (*i + 1 >= argc)
     {
         print_error(ERR_MISSING_ARGUMENT, "--key");
         args->has_error = 1;
         return;
     }
+
+    // Pour accepté les clés négatives :
+    // On vérifie que ce n'est pas un flag (commence par - mais n'est pas un nombre)
+    if (argv[*i + 1][0] == '-' && is_number(argv[*i + 1]))
+    {
+        print_error(ERR_MISSING_ARGUMENT, "--key");
+        args->has_error = 1;
+        return;
+    }
+
     Action *last = &args->actions[args->actions_count - 1];
     last->key = argv[*i + 1];
     (*i)++;
@@ -155,7 +207,7 @@ void handle_input_format(Arguments *args, int *i, int argc, char **argv)
     }
 
     // Vérifie que le format est valide
-    if (!is_valid_format(argv[*i + 1]))
+    if (is_valid_format(argv[*i + 1]))
     {
         print_error(ERR_UNKNOWN_FORMAT, argv[*i + 1]);
         args->has_error = 1;
@@ -188,7 +240,7 @@ void handle_output_format(Arguments *args, int *i, int argc, char **argv)
     }
 
     // Vérifie que le format est valide
-    if (!is_valid_format(argv[*i + 1]))
+    if (is_valid_format(argv[*i + 1]))
     {
         print_error(ERR_UNKNOWN_FORMAT, argv[*i + 1]);
         args->has_error = 1;

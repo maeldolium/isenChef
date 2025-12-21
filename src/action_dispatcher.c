@@ -6,19 +6,33 @@
 #include "../includes/actions.h"
 #include "../includes/errors.h"
 
+// Tableau de structure des actions connues
+static ActionEntry actions[] = {
+    {"uppercase", to_uppercase},
+    {"lowercase", to_lowercase},
+    {"caesar", caesar},
+    {"RC4", rc4},
+    {"XOR", xor},
+};
+
+// Nombre d'action dans le tableau de structure ActionEntry actions
+static int actionsCount = sizeof(actions) / sizeof(actions[0]);
+
 /**
  * \brief Vérifie si une action demande une clé obligatoire
  *
- * La fonction action_requires_key retourne 1 si l'action spécifiée
+ * La fonction action_requires_key retourne 0 si l'action spécifiée
  * nécessite une clé pour fonctionner.
  *
  * \param action_name Pointeur vers le nom de l'action à vérifier
- * \return Retourne 1 si l'action demande une clé, 0 sinon
+ * \return Retourne 0 si l'action demande une clé, 1 sinon
  */
 int action_requires_key(const char *action_name)
 {
     if (!action_name)
-        return 0;
+    {
+        return 1;
+    }
 
     // Les actions qui demandent une clé
     const char *key_required[] = {"caesar", "RC4", "XOR"};
@@ -29,11 +43,11 @@ int action_requires_key(const char *action_name)
     {
         if (strcmp(action_name, key_required[i]) == 0)
         {
-            return 1;
+            return 0;
         }
     }
 
-    return 0;
+    return 1;
 }
 
 /**
@@ -43,44 +57,30 @@ int action_requires_key(const char *action_name)
  * existe dans la liste des actions disponibles.
  *
  * \param action_name Pointeur vers le nom de l'action à vérifier
- * \return Retourne 1 si l'action est valide, 0 sinon
+ * \return Retourne 0 si l'action est valide, 1 sinon
  */
 int is_valid_action(const char *action_name)
 {
     if (!action_name)
-        return 0;
-
-    // Tableau de structure des actions connues
-    static ActionEntry actions[] = {
-        {"uppercase", to_uppercase},
-        {"lowercase", to_lowercase},
-        {"caesar", caesar},
-        {"RC4", rc4},
-        {"XOR", xor},
-    };
-
-    int actionsCount = sizeof(actions) / sizeof(actions[0]);
+        return 1;
 
     for (int i = 0; i < actionsCount; i++)
     {
         if (strcmp(action_name, actions[i].name) == 0)
         {
-            return 1;
+            return 0;
         }
     }
 
-    return 0;
+    return 1;
 }
 
 /**
  * \brief Permet d'associer à un nom d'action son appel de fonction.
  *
  * La fonction dispatch_action prend un buffer d'entrée input_buffer et une
- * Action action. Elle crée un buffer disaction et l'initialise. Ensuite, elle
- * vérifie que input_buffer et action existent, et crée un tableau de structures
- * ActionsEntry qui associe à chaque nom d'action sa fonction. Le programme
- * cherche si le nom d'action rentré par l'utilisateur existe et met le résultat
- * de la transformation dans disaction.
+ * Action action. Elle vérifie que input_buffer, action et le nom de l'action rentré par
+ * l'utilisateur existent et met le résultat de la transformation dans disaction.
  *
  * \param input_buffer Pointeur vers le buffer d'entrée contenant les données du
  * fichier à modifier
@@ -106,19 +106,8 @@ FileBuffer dispatch_action(const FileBuffer *input_buffer, const Action *action)
         return disaction;
     }
 
-    // Tableau de structure des actions connues
-    static ActionEntry actions[] = {
-        {"uppercase", to_uppercase},
-        {"lowercase", to_lowercase},
-        {"caesar", caesar},
-        {"RC4", rc4},
-        {"XOR", xor},
-    };
-
-    int actionsCount = sizeof(actions) / sizeof(actions[0]);
-
     int found = 0;
-    // Recherche le nom de l'action dans le tableau et l'applique
+    // Recherche le nom de l'action dans le tableau et
     // l'applique si elle existe
     for (int i = 0; i < actionsCount; i++)
     {

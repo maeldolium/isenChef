@@ -67,7 +67,7 @@ Arguments parse_args(int argc, char **argv)
     // Vérifie que toutes les actions qui demandent une clé en ont une
     for (int i = 0; i < args.actions_count; i++)
     {
-        if (action_requires_key(args.actions[i].name) && args.actions[i].key == NULL)
+        if (!action_requires_key(args.actions[i].name) && args.actions[i].key == NULL)
         {
             print_error(ERR_MISSING_KEY, args.actions[i].name);
             args.has_error = 1;

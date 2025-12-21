@@ -18,12 +18,14 @@ static FormatEntry formats[] = {{"bytes", NULL, NULL}, // Pas d'encodage/décoda
  * existe dans la liste des formats disponibles.
  *
  * \param format_name Pointeur vers le nom du format à vérifier
- * \return Retourne 1 si le format est valide, 0 sinon
+ * \return Retourne 0 si le format est valide, 1 sinon
  */
 int is_valid_format(const char *format_name)
 {
     if (!format_name)
-        return 0;
+    {
+        return 1;
+    }
 
     int formatsCount = sizeof(formats) / sizeof(formats[0]);
 
@@ -31,11 +33,11 @@ int is_valid_format(const char *format_name)
     {
         if (strcmp(format_name, formats[i].name) == 0)
         {
-            return 1;
+            return 0;
         }
     }
 
-    return 0;
+    return 1;
 }
 
 /**
