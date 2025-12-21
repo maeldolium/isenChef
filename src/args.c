@@ -77,6 +77,7 @@ Arguments parse_args(int argc, char **argv)
 
     return args;
 }
+
 /**
  * \brief Libère la mémoire allouée pour la structure Arguments
  *

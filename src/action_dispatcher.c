@@ -7,13 +7,12 @@
 #include "../includes/errors.h"
 
 // Tableau de structure des actions connues
-static ActionEntry actions[] = {
-    {"uppercase", to_uppercase},
-    {"lowercase", to_lowercase},
-    {"caesar", caesar},
-    {"RC4", rc4},
-    {"XOR", xor},
-};
+static ActionEntry actions[] = {{"uppercase", to_uppercase},
+                                {"lowercase", to_lowercase},
+                                {"caesar", caesar},
+                                {"RC4", rc4},
+                                {"XOR", xor},
+                                {"reverse", reverse}};
 
 // Nombre d'action dans le tableau de structure ActionEntry actions
 static int actionsCount = sizeof(actions) / sizeof(actions[0]);

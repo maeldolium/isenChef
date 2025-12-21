@@ -15,6 +15,7 @@ src_file = files(
     'src/actions/caesar.c',
     'src/actions/rc4.c',
     'src/actions/xor.c',
+    'src/actions/reverse.c',
     'src/format_dispatcher.c',
     'src/formats/hex.c',
     'src/formats/base64.c',
