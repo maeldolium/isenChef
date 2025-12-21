@@ -2,6 +2,13 @@
 
 #include "../includes/help.h"
 
+/**
+ * \brief Permet d'afficher les aides du programme.
+ *
+ * La fonction print_help permet d'afficher les aides d'utilisation
+ * du programme, les différents arguments, actions et format disponibles, etc.
+ *
+ */
 void print_help(void)
 {
     printf("\n");
