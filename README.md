@@ -40,7 +40,7 @@ Avant de compiler le projet, assurez-vous d'avoir les éléments suivants instal
 - Transformation minuscule
 - Inversion des données
 - Encodage hexadécimal
-- Encode base64
+- Encodage base64
 - Encodage bytes
 - Chiffrement César
 - Chiffrement RC4
@@ -103,8 +103,8 @@ La syntaxe générale du programme est :
 ### Paramètres
 
 - `--in <fichier>` : Fichier d'entrée à traiter
-- `--action <action>` : Action à effectuer (par ex. : `caesar`, `rc4`, `tohex`, `tobase64`, `toupper`, `tolower`)
-- `--key <clé>` : Clé de chiffrement (obligatoire pour certaines actions comme `caesar` et `rc4`)
+- `--action <action>` : Action à effectuer (par ex. : `caesar`, `RC4`, `XOR`, `hex`, `base64`, `uppercase`, `lowercase`, `reverse`)
+- `--key <clé>` : Clé de chiffrement (obligatoire pour certaines actions comme `caesar` et `RC4`)
 - `--out <fichier>` : Fichier de sortie où écrire le résultat
 
 **Important** : Il est nécessaire de fournir le chemin complet ou relatif vers les fichiers. Puisque l'exécutable `isenChef` se trouve dans le dossier `builddir`, utilisez les chemins relatifs en conséquence. Par exemple, si votre fichier d'entrée se trouve à la racine du projet, utilisez `../input.txt`.
@@ -206,8 +206,12 @@ isenChef/
 ## Détails des Formats
 
 - **bytes** : Format brut (défaut, pas de transformation)
-- **hex** : Encodage hexadécimal (chaque octet → 2 caractères hex)
-- **base64** : Encodage Base64 (compression sans perte)
+- **hex** : Encodage hexadécimal
+- **base64** : Encodage Base64
+
+---
+
+Pour plus de détails, consulter [help.md](https://github.com/maeldolium/isenChef/blob/master/help.md)
 
 ---
 
